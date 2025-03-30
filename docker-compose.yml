@@ -1,0 +1,7 @@
+version: "3.7"
+services:
+  kotlin-app:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: kotlin_docker_example
