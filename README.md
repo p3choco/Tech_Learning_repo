@@ -1,7 +1,30 @@
-# Tech_Learning_repo
+**Zadanie 1** Tytuł
 
-## Task 1
+:white_check_mark: 3.0 wymaganie 1 [Link do commita 1](https://hub.docker.com/r/pbednarski/kotlin-docker-example)
 
-Solution Link: 
+:white_check_mark: 3.5 wymaganie 2 [Link do commita2 ](https://hub.docker.com/r/pbednarski/kotlin-docker-example)
 
-https://hub.docker.com/r/pbednarski/kotlin-docker-example
+:white_check_mark: 4.0 wymaganie 3 [Link do commita 3](https://hub.docker.com/r/pbednarski/kotlin-docker-example)
+
+:white_check_mark: 4.5 wymaganie 4 [Link do commita 4](https://hub.docker.com/r/pbednarski/kotlin-docker-example)
+
+:white_check_mark: 5.0 wymaganie 5 [Link do commita 5](https://hub.docker.com/r/pbednarski/kotlin-docker-example)
+
+
+Kod: (folder lub branch)
+
+**Zadanie 2** Tytuł
+
+:white_check_mark: 3.0 wymaganie 1 [Link do commita 1](https://github.com/kprzystalski/workshop_template/commit/hash)
+
+:white_check_mark: 3.5 wymaganie 2 [Link do commita2 ](https://github.com/kprzystalski/workshop_template/commit/hash)
+
+:white_check_mark: 4.0 wymaganie 3 [Link do commita 3](https://github.com/kprzystalski/workshop_template/commit/hash)
+
+:x: 4.5 wymaganie 4 [Link do commita 4](https://github.com/kprzystalski/workshop_template/commit/hash)
+
+:x: 5.0 wymaganie 5 [Link do commita 5](https://github.com/kprzystalski/workshop_template/commit/hash)
+
+
+Kod: (folder lub branch)
+
