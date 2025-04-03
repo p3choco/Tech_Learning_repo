@@ -1,0 +1,5 @@
+[0m[[0m[0mdebug[0m] [0m[0mCopy resource mappings: [0m
+[0m[[0m[0mdebug[0m] [0m[0m	(/Users/piotrbednarski/Desktop/kotlin-docker-project/scala-play/conf/logback.xml,/Users/piotrbednarski/Desktop/kotlin-docker-project/scala-play/target/scala-3.3.5/classes/logback.xml)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(/Users/piotrbednarski/Desktop/kotlin-docker-project/scala-play/conf/messages,/Users/piotrbednarski/Desktop/kotlin-docker-project/scala-play/target/scala-3.3.5/classes/messages)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(/Users/piotrbednarski/Desktop/kotlin-docker-project/scala-play/conf/application.conf,/Users/piotrbednarski/Desktop/kotlin-docker-project/scala-play/target/scala-3.3.5/classes/application.conf)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(/Users/piotrbednarski/Desktop/kotlin-docker-project/scala-play/conf/routes,/Users/piotrbednarski/Desktop/kotlin-docker-project/scala-play/target/scala-3.3.5/classes/routes)[0m
