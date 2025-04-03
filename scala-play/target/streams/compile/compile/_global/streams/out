@@ -1,0 +1,22 @@
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E006] Not Found Error: /Users/piotrbednarski/Desktop/kotlin-docker-project/scala-play/app/controllers/CartController.scala:39:62 [0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m39 |[0m          [33mcase[0m -[31m1[0m => NotFound([31ms"Nie znaleziono produktu o id [0m$id[31m w koszyku"[0m)[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m                                                              ^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m   |[0m                                                           Not found: id[0m
+[0m[[0m[31merror[0m] [0m[0m[31m   |[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m   |[0m longer explanation available when compiling with `-explain`[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E006] Not Found Error: /Users/piotrbednarski/Desktop/kotlin-docker-project/scala-play/app/controllers/CartController.scala:50:58 [0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m50 |[0m      [33mcase[0m -[31m1[0m => NotFound([31ms"Nie znaleziono produktu o id [0m$id[31m w koszyku"[0m)[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m                                                          ^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m   |[0m                                                          Not found: id[0m
+[0m[[0m[31merror[0m] [0m[0m[31m   |[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m   |[0m longer explanation available when compiling with `-explain`[0m
+[0m[[0m[31merror[0m] [0m[0mtwo errors found[0m
+[0m[[0m[31merror[0m] [0m[0mtwo errors found[0m
+[0m[[0m[31merror[0m] [0m[0mtwo errors found[0m
+[0m[[0m[31merror[0m] [0m[0mtwo errors found[0m
+[0m[[0m[31merror[0m] [0m[0mtwo errors found[0m
+[0m[[0m[31merror[0m] [0m[0mtwo errors found[0m
+[0m[[0m[31merror[0m] [0m[0mtwo errors found[0m
+[0m[[0m[31merror[0m] [0m[0mtwo errors found[0m
+[0m[[0m[31merror[0m] [0m[0mtwo errors found[0m
+[0m[[0m[31merror[0m] [0m[0mtwo errors found[0m

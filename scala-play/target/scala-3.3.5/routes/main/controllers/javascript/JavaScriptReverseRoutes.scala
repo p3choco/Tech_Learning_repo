@@ -69,5 +69,115 @@ package controllers.javascript {
   
   }
 
+  // @LINE:7
+  class ReverseCategoriesController(_prefix: => String) {
+
+    def _defaultPrefix: String = {
+      if (_prefix.endsWith("/")) "" else "/"
+    }
+
+  
+    // @LINE:10
+    def updateCategory: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.CategoriesController.updateCategory",
+      """
+        function(id0) {
+          return _wA({method:"PUT", url:"""" + _prefix + { _defaultPrefix } + """" + "categories/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[Int]].javascriptUnbind + """)("id", id0))})
+        }
+      """
+    )
+  
+    // @LINE:9
+    def addCategory: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.CategoriesController.addCategory",
+      """
+        function() {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "categories"})
+        }
+      """
+    )
+  
+    // @LINE:7
+    def listCategories: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.CategoriesController.listCategories",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "categories"})
+        }
+      """
+    )
+  
+    // @LINE:8
+    def getCategory: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.CategoriesController.getCategory",
+      """
+        function(id0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "categories/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[Int]].javascriptUnbind + """)("id", id0))})
+        }
+      """
+    )
+  
+    // @LINE:11
+    def deleteCategory: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.CategoriesController.deleteCategory",
+      """
+        function(id0) {
+          return _wA({method:"DELETE", url:"""" + _prefix + { _defaultPrefix } + """" + "categories/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[Int]].javascriptUnbind + """)("id", id0))})
+        }
+      """
+    )
+  
+  }
+
+  // @LINE:13
+  class ReverseCartController(_prefix: => String) {
+
+    def _defaultPrefix: String = {
+      if (_prefix.endsWith("/")) "" else "/"
+    }
+
+  
+    // @LINE:13
+    def listCartItems: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.CartController.listCartItems",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "cart"})
+        }
+      """
+    )
+  
+    // @LINE:14
+    def addCartItem: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.CartController.addCartItem",
+      """
+        function() {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "cart"})
+        }
+      """
+    )
+  
+    // @LINE:15
+    def updateCartItem: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.CartController.updateCartItem",
+      """
+        function(productId0) {
+          return _wA({method:"PUT", url:"""" + _prefix + { _defaultPrefix } + """" + "cart/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[Int]].javascriptUnbind + """)("productId", productId0))})
+        }
+      """
+    )
+  
+    // @LINE:16
+    def deleteCartItem: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.CartController.deleteCartItem",
+      """
+        function(productId0) {
+          return _wA({method:"DELETE", url:"""" + _prefix + { _defaultPrefix } + """" + "cart/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[Int]].javascriptUnbind + """)("productId", productId0))})
+        }
+      """
+    )
+  
+  }
+
 
 }

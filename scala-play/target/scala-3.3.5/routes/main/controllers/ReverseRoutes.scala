@@ -48,5 +48,77 @@ package controllers {
   
   }
 
+  // @LINE:7
+  class ReverseCategoriesController(_prefix: => String) {
+    def _defaultPrefix: String = {
+      if (_prefix.endsWith("/")) "" else "/"
+    }
+
+  
+    // @LINE:10
+    def updateCategory(id:Int): Call = {
+      
+      Call("PUT", _prefix + { _defaultPrefix } + "categories/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Int]].unbind("id", id)))
+    }
+  
+    // @LINE:9
+    def addCategory: Call = {
+      
+      Call("POST", _prefix + { _defaultPrefix } + "categories")
+    }
+  
+    // @LINE:7
+    def listCategories: Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "categories")
+    }
+  
+    // @LINE:8
+    def getCategory(id:Int): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "categories/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Int]].unbind("id", id)))
+    }
+  
+    // @LINE:11
+    def deleteCategory(id:Int): Call = {
+      
+      Call("DELETE", _prefix + { _defaultPrefix } + "categories/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Int]].unbind("id", id)))
+    }
+  
+  }
+
+  // @LINE:13
+  class ReverseCartController(_prefix: => String) {
+    def _defaultPrefix: String = {
+      if (_prefix.endsWith("/")) "" else "/"
+    }
+
+  
+    // @LINE:13
+    def listCartItems: Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "cart")
+    }
+  
+    // @LINE:14
+    def addCartItem: Call = {
+      
+      Call("POST", _prefix + { _defaultPrefix } + "cart")
+    }
+  
+    // @LINE:15
+    def updateCartItem(productId:Int): Call = {
+      
+      Call("PUT", _prefix + { _defaultPrefix } + "cart/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Int]].unbind("productId", productId)))
+    }
+  
+    // @LINE:16
+    def deleteCartItem(productId:Int): Call = {
+      
+      Call("DELETE", _prefix + { _defaultPrefix } + "cart/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Int]].unbind("productId", productId)))
+    }
+  
+  }
+
 
 }
