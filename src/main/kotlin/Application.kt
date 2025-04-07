@@ -10,7 +10,7 @@ import io.ktor.serialization.kotlinx.json.*
 import io.ktor.server.request.*
 
 fun main() {
-    val botToken = System.getenv("DISCORD_BOT_TOKEN") ?: "Bot MTM1ODkzMTc3NTMzNzc5MTU3OQ.G1QnpC.S4TD_3WrQWbsgJS6rP7EcA2v7c2mmiHfl-fV6s"
+    val botToken = System.getenv("DISCORD_BOT_TOKEN") ?: error("Missing token")
     val channelId = System.getenv("DISCORD_CHANNEL_ID") ?: "414517520188440586"
 
     DiscordClient.sendMessage(botToken, channelId, "Hello from Ktor client!")
