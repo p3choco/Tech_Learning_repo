@@ -12,6 +12,7 @@ repositories {
 }
 
 dependencies {
+    implementation("io.ktor:ktor-client-auth:2.2.4")
     implementation("dev.kord:kord-core:0.8.0")
 
     implementation("io.ktor:ktor-server-core:2.2.4")
