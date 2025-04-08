@@ -13,16 +13,18 @@ fun main() {
     val botToken = System.getenv("DISCORD_BOT_TOKEN") ?: error("Missing token")
     val channelId = System.getenv("DISCORD_CHANNEL_ID") ?: "414517520188440586"
 
-    DiscordClient.sendMessage(botToken, channelId, "Hello from Ktor client!")
+    DiscordClient.sendMessage("Bot $botToken", channelId, "Hello from Ktor client!")
 
-    embeddedServer(Netty, port = 8080) {
+    val server = embeddedServer(Netty, port = 8080) {
         install(ContentNegotiation) {
             json()
         }
         routing {
             get("/") {
-                call.respondText("Ktor Discord Client – wysłano wiadomość testową.")
+                call.respondText("Ktor Discord Bot is running (sending + receiving) ...")
             }
         }
-    }.start(wait = true)
+    }
+
+    Bot.startBot(botToken)
 }
