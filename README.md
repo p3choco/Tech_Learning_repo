@@ -57,4 +57,4 @@ Webex
 https://github.com/user-attachments/assets/c5e1152c-99b6-4050-ba53-fcd8fc2216ab
 
 
-Kod: scala
+Kod: kotlin
