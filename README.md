@@ -58,3 +58,33 @@ https://github.com/user-attachments/assets/c5e1152c-99b6-4050-ba53-fcd8fc2216ab
 
 
 Kod: kotlin
+
+
+**Zadanie 4** Go
+
+Należy stworzyć projekt w echo w Go. Należy wykorzystać gorm do
+stworzenia 5 modeli, gdzie pomiędzy dwoma musi być relacja. Należy
+zaimplementować proste endpointy do dodawania oraz wyświetlania danych
+za pomocą modeli. Jako bazę danych można wybrać dowolną, sugerowałbym
+jednak pozostać przy sqlite.
+
+:white_check_mark: 3.0 Należy stworzyć aplikację we frameworki echo w j. Go, która będzie
+miała kontroler Produktów zgodny z CRUD [Link do commita 1](https://github.com/p3choco/Tech_Learning_repo/commit/79e81c48abce6b8c924b8621fcd5a55c368a7a14)
+
+:white_check_mark: 3.5 Należy stworzyć model Produktów wykorzystując gorm oraz
+wykorzystać model do obsługi produktów (CRUD) w kontrolerze (zamiast
+listy) [Link do commita2 ](https://github.com/p3choco/Tech_Learning_repo/commit/7515ad9a0fd64a3db60eea2ae7a23864abfa1c06
+)
+
+:white_check_mark: 4.0 Należy dodać model Koszyka oraz dodać odpowiedni endpoint [Link do commita 3](https://github.com/p3choco/Tech_Learning_repo/commit/f93c438fe50e1b1ded3dc49ce4f96339b3a64b5e
+)
+
+:white_check_mark: 4.5 Należy stworzyć model kategorii i dodać relację między kategorią,
+a produktem [Link do commita 4](https://github.com/p3choco/Tech_Learning_repo/commit/f0d40983164238caa5dbd847b0a611d09123e9c1
+)
+
+:white_check_mark: 5.0 pogrupować zapytania w gorm’owe scope'y
+ [Link do commita 5](https://github.com/p3choco/Tech_Learning_repo/commit/763dcb5168ae8f9d3c2a6af8883977ab822e441e)
+
+
+Kod: Go
