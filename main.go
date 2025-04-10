@@ -31,6 +31,18 @@ type Cart struct {
 	CartValue float64 `json:"cart_value"`
 }
 
+func ScopeMinPrice(min float64) func(*gorm.DB) *gorm.DB {
+	return func(db *gorm.DB) *gorm.DB {
+		return db.Where("price >= ?", min)
+	}
+}
+
+func ScopeCategoryID(catID uint) func(*gorm.DB) *gorm.DB {
+	return func(db *gorm.DB) *gorm.DB {
+		return db.Where("category_id = ?", catID)
+	}
+}
+
 func main() {
 	initDB()
 
@@ -41,6 +53,8 @@ func main() {
 	e.POST("/products", createProduct)
 	e.PUT("/products/:id", updateProduct)
 	e.DELETE("/products/:id", deleteProduct)
+
+	e.GET("/products/filter", filterProducts)
 
 	e.GET("/carts", getCarts)
 	e.POST("/carts", createCart)
@@ -58,7 +72,6 @@ func initDB() {
 	if err != nil {
 		panic("failed to connect database")
 	}
-
 	DB.AutoMigrate(&Category{}, &Product{}, &Cart{})
 }
 
@@ -97,11 +110,9 @@ func updateProduct(c echo.Context) error {
 	if err := DB.First(&product, id).Error; err != nil {
 		return c.JSON(http.StatusNotFound, echo.Map{"message": "Product not found"})
 	}
-
 	if err := c.Bind(&product); err != nil {
 		return err
 	}
-
 	if err := DB.Save(&product).Error; err != nil {
 		return c.JSON(http.StatusInternalServerError, echo.Map{"error": err.Error()})
 	}
@@ -114,11 +125,39 @@ func deleteProduct(c echo.Context) error {
 	if err := DB.First(&product, id).Error; err != nil {
 		return c.JSON(http.StatusNotFound, echo.Map{"message": "Product not found"})
 	}
-
 	if err := DB.Delete(&product).Error; err != nil {
 		return c.JSON(http.StatusInternalServerError, echo.Map{"error": err.Error()})
 	}
 	return c.NoContent(http.StatusNoContent)
+}
+
+func filterProducts(c echo.Context) error {
+	var products []Product
+
+	minPriceStr := c.QueryParam("minPrice")
+	categoryIDStr := c.QueryParam("categoryID")
+
+	dbQuery := DB.Preload("Category").Model(&Product{})
+
+	if minPriceStr != "" {
+		minPrice, err := strconv.ParseFloat(minPriceStr, 64)
+		if err == nil {
+			dbQuery = dbQuery.Scopes(ScopeMinPrice(minPrice))
+		}
+	}
+
+	if categoryIDStr != "" {
+		catID, err := strconv.ParseUint(categoryIDStr, 10, 64)
+		if err == nil {
+			dbQuery = dbQuery.Scopes(ScopeCategoryID(uint(catID)))
+		}
+	}
+
+	if err := dbQuery.Find(&products).Error; err != nil {
+		return c.JSON(http.StatusInternalServerError, echo.Map{"error": err.Error()})
+	}
+
+	return c.JSON(http.StatusOK, products)
 }
 
 func getCarts(c echo.Context) error {
