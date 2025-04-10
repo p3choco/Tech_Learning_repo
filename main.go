@@ -5,19 +5,21 @@ import (
 	"strconv"
 
 	"github.com/labstack/echo/v4"
+	"gorm.io/driver/sqlite"
+	"gorm.io/gorm"
 )
+
+var DB *gorm.DB
 
 type Product struct {
-	ID   int    `json:"id"`
-	Name string `json:"name"`
+	gorm.Model
+	Name  string  `json:"name"`
+	Price float64 `json:"price"`
 }
 
-var (
-	products   []Product
-	nextProdID = 1
-)
-
 func main() {
+	initDB()
+
 	e := echo.New()
 
 	e.GET("/products", getProducts)
@@ -29,18 +31,33 @@ func main() {
 	e.Logger.Fatal(e.Start(":1323"))
 }
 
+func initDB() {
+	var err error
+	DB, err = gorm.Open(sqlite.Open("example.db"), &gorm.Config{})
+	if err != nil {
+		panic("failed to connect database")
+	}
+
+	DB.AutoMigrate(&Product{})
+}
+
 func getProducts(c echo.Context) error {
+	var products []Product
+	result := DB.Find(&products)
+	if result.Error != nil {
+		return c.JSON(http.StatusInternalServerError, echo.Map{"error": result.Error.Error()})
+	}
 	return c.JSON(http.StatusOK, products)
 }
 
 func getProductByID(c echo.Context) error {
 	id, _ := strconv.Atoi(c.Param("id"))
-	for _, p := range products {
-		if p.ID == id {
-			return c.JSON(http.StatusOK, p)
-		}
+	var product Product
+	result := DB.First(&product, id)
+	if result.Error != nil {
+		return c.JSON(http.StatusNotFound, echo.Map{"message": "Product not found"})
 	}
-	return c.JSON(http.StatusNotFound, echo.Map{"message": "Product not found"})
+	return c.JSON(http.StatusOK, product)
 }
 
 func createProduct(c echo.Context) error {
@@ -48,36 +65,40 @@ func createProduct(c echo.Context) error {
 	if err := c.Bind(&newProduct); err != nil {
 		return err
 	}
-	newProduct.ID = nextProdID
-	nextProdID++
-	products = append(products, newProduct)
-
+	result := DB.Create(&newProduct)
+	if result.Error != nil {
+		return c.JSON(http.StatusInternalServerError, echo.Map{"error": result.Error.Error()})
+	}
 	return c.JSON(http.StatusCreated, newProduct)
 }
 
 func updateProduct(c echo.Context) error {
 	id, _ := strconv.Atoi(c.Param("id"))
-	var updated Product
-	if err := c.Bind(&updated); err != nil {
+
+	var product Product
+	if err := DB.First(&product, id).Error; err != nil {
+		return c.JSON(http.StatusNotFound, echo.Map{"message": "Product not found"})
+	}
+
+	if err := c.Bind(&product); err != nil {
 		return err
 	}
 
-	for i, p := range products {
-		if p.ID == id {
-			products[i].Name = updated.Name
-			return c.JSON(http.StatusOK, products[i])
-		}
+	if err := DB.Save(&product).Error; err != nil {
+		return c.JSON(http.StatusInternalServerError, echo.Map{"error": err.Error()})
 	}
-	return c.JSON(http.StatusNotFound, echo.Map{"message": "Product not found"})
+	return c.JSON(http.StatusOK, product)
 }
 
 func deleteProduct(c echo.Context) error {
 	id, _ := strconv.Atoi(c.Param("id"))
-	for i, p := range products {
-		if p.ID == id {
-			products = append(products[:i], products[i+1:]...)
-			return c.NoContent(http.StatusNoContent)
-		}
+	var product Product
+	if err := DB.First(&product, id).Error; err != nil {
+		return c.JSON(http.StatusNotFound, echo.Map{"message": "Product not found"})
 	}
-	return c.JSON(http.StatusNotFound, echo.Map{"message": "Product not found"})
+
+	if err := DB.Delete(&product).Error; err != nil {
+		return c.JSON(http.StatusInternalServerError, echo.Map{"error": err.Error()})
+	}
+	return c.NoContent(http.StatusNoContent)
 }
