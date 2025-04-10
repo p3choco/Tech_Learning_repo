@@ -69,22 +69,23 @@ za pomocą modeli. Jako bazę danych można wybrać dowolną, sugerowałbym
 jednak pozostać przy sqlite.
 
 :white_check_mark: 3.0 Należy stworzyć aplikację we frameworki echo w j. Go, która będzie
-miała kontroler Produktów zgodny z CRUD [Link do commita 1](https://github.com/p3choco/Tech_Learning_repo/commit/79e81c48abce6b8c924b8621fcd5a55c368a7a14)
+miała kontroler Produktów zgodny z CRUD [Link do commita 1](https://github.com/p3choco/Tech_Learning_repo/commit/ecaf27663690db6cba6b881ec902a93b4bcee7e8
+)
 
 :white_check_mark: 3.5 Należy stworzyć model Produktów wykorzystując gorm oraz
 wykorzystać model do obsługi produktów (CRUD) w kontrolerze (zamiast
-listy) [Link do commita2 ](https://github.com/p3choco/Tech_Learning_repo/commit/7515ad9a0fd64a3db60eea2ae7a23864abfa1c06
+listy) [Link do commita2 ](https://github.com/p3choco/Tech_Learning_repo/commit/6f2c2f0cb8f8781eded33b744acd9524f3a9ff91
 )
 
-:white_check_mark: 4.0 Należy dodać model Koszyka oraz dodać odpowiedni endpoint [Link do commita 3](https://github.com/p3choco/Tech_Learning_repo/commit/f93c438fe50e1b1ded3dc49ce4f96339b3a64b5e
+:white_check_mark: 4.0 Należy dodać model Koszyka oraz dodać odpowiedni endpoint [Link do commita 3](https://github.com/p3choco/Tech_Learning_repo/commit/34d847137ee7f94a6d72375a74a168805c4ebffd
 )
 
 :white_check_mark: 4.5 Należy stworzyć model kategorii i dodać relację między kategorią,
-a produktem [Link do commita 4](https://github.com/p3choco/Tech_Learning_repo/commit/f0d40983164238caa5dbd847b0a611d09123e9c1
+a produktem [Link do commita 4](https://github.com/p3choco/Tech_Learning_repo/commit/1cd2ace9d146b48967cb4e55251ff261741ca90c
 )
 
 :white_check_mark: 5.0 pogrupować zapytania w gorm’owe scope'y
- [Link do commita 5](https://github.com/p3choco/Tech_Learning_repo/commit/763dcb5168ae8f9d3c2a6af8883977ab822e441e)
+ [Link do commita 5](https://github.com/p3choco/Tech_Learning_repo/commit/3b55f731884e8be36adba7f6fce2650a20781527)
 
 
 Kod: Go
