@@ -11,10 +11,18 @@ import (
 
 var DB *gorm.DB
 
+type Category struct {
+	gorm.Model
+	Name     string    `json:"name"`
+	Products []Product `json:"products"`
+}
+
 type Product struct {
 	gorm.Model
-	Name  string  `json:"name"`
-	Price float64 `json:"price"`
+	Name       string   `json:"name"`
+	Price      float64  `json:"price"`
+	CategoryID uint     `json:"category_id"`
+	Category   Category `json:"category"`
 }
 
 type Cart struct {
@@ -37,6 +45,10 @@ func main() {
 	e.GET("/carts", getCarts)
 	e.POST("/carts", createCart)
 
+	e.GET("/categories", getCategories)
+	e.GET("/categories/:id", getCategoryByID)
+	e.POST("/categories", createCategory)
+
 	e.Logger.Fatal(e.Start(":1323"))
 }
 
@@ -47,14 +59,13 @@ func initDB() {
 		panic("failed to connect database")
 	}
 
-	DB.AutoMigrate(&Product{}, &Cart{})
+	DB.AutoMigrate(&Category{}, &Product{}, &Cart{})
 }
 
 func getProducts(c echo.Context) error {
 	var products []Product
-	result := DB.Find(&products)
-	if result.Error != nil {
-		return c.JSON(http.StatusInternalServerError, echo.Map{"error": result.Error.Error()})
+	if err := DB.Preload("Category").Find(&products).Error; err != nil {
+		return c.JSON(http.StatusInternalServerError, echo.Map{"error": err.Error()})
 	}
 	return c.JSON(http.StatusOK, products)
 }
@@ -62,8 +73,7 @@ func getProducts(c echo.Context) error {
 func getProductByID(c echo.Context) error {
 	id, _ := strconv.Atoi(c.Param("id"))
 	var product Product
-	result := DB.First(&product, id)
-	if result.Error != nil {
+	if err := DB.Preload("Category").First(&product, id).Error; err != nil {
 		return c.JSON(http.StatusNotFound, echo.Map{"message": "Product not found"})
 	}
 	return c.JSON(http.StatusOK, product)
@@ -74,9 +84,8 @@ func createProduct(c echo.Context) error {
 	if err := c.Bind(&newProduct); err != nil {
 		return err
 	}
-	result := DB.Create(&newProduct)
-	if result.Error != nil {
-		return c.JSON(http.StatusInternalServerError, echo.Map{"error": result.Error.Error()})
+	if err := DB.Create(&newProduct).Error; err != nil {
+		return c.JSON(http.StatusInternalServerError, echo.Map{"error": err.Error()})
 	}
 	return c.JSON(http.StatusCreated, newProduct)
 }
@@ -129,4 +138,32 @@ func createCart(c echo.Context) error {
 		return c.JSON(http.StatusInternalServerError, echo.Map{"error": err.Error()})
 	}
 	return c.JSON(http.StatusCreated, cart)
+}
+
+func getCategories(c echo.Context) error {
+	var categories []Category
+	if err := DB.Preload("Products").Find(&categories).Error; err != nil {
+		return c.JSON(http.StatusInternalServerError, echo.Map{"error": err.Error()})
+	}
+	return c.JSON(http.StatusOK, categories)
+}
+
+func getCategoryByID(c echo.Context) error {
+	id, _ := strconv.Atoi(c.Param("id"))
+	var category Category
+	if err := DB.Preload("Products").First(&category, id).Error; err != nil {
+		return c.JSON(http.StatusNotFound, echo.Map{"message": "Category not found"})
+	}
+	return c.JSON(http.StatusOK, category)
+}
+
+func createCategory(c echo.Context) error {
+	var category Category
+	if err := c.Bind(&category); err != nil {
+		return err
+	}
+	if err := DB.Create(&category).Error; err != nil {
+		return c.JSON(http.StatusInternalServerError, echo.Map{"error": err.Error()})
+	}
+	return c.JSON(http.StatusCreated, category)
 }
