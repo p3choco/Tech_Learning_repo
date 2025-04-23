@@ -6,7 +6,7 @@ const Produkty = () => {
     const [products, setProducts] = useState([]);
     const [loading,  setLoading]  = useState(true);
     const [error,    setError]    = useState(null);
-    const dispatch = useCartDispatch();
+    const dispatch = useCartDispatch();          // hook do dispatchowania
 
     useEffect(() => {
         axios.get('http://localhost:8080/products')

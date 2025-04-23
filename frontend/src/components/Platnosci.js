@@ -19,7 +19,7 @@ const Platnosci = () => {
                 items: cart
             });
             setStatus('success');
-            dispatch({ type: 'CLEAR_CART' });
+            dispatch({ type: 'CLEAR_CART' });  // czyszczenie koszyka po sukcesie
         } catch (err) {
             console.error(err);
             setStatus('error');

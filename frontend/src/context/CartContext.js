@@ -15,8 +15,10 @@ function cartReducer(state, action) {
                 );
             }
             return [...state, { ...action.payload, qty: 1 }];
+
         case 'CLEAR_CART':
             return [];
+
         default:
             return state;
     }
