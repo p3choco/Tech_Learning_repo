@@ -1,16 +1,23 @@
 import React from 'react';
-import Produkty   from './components/Produkty';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import Produkty  from './components/Produkty';
+import Koszyk    from './components/Koszyk';
 import Platnosci from './components/Platnosci';
 
-function App() {
+export default function App() {
     return (
-        <div style={{ padding: 20 }}>
-            <h1>Moja Aplikacja Sklep</h1>
-            <Produkty />
-            <hr/>
-            <Platnosci />
-        </div>
+        <BrowserRouter>
+            <nav style={{ marginBottom: 20 }}>
+                <Link to="/">Produkty</Link> |{' '}
+                <Link to="/cart">Koszyk</Link> |{' '}
+                <Link to="/checkout">Płatności</Link>
+            </nav>
+            <Routes>
+                <Route path="/" element={<Produkty />} />
+                <Route path="/cart" element={<Koszyk />} />
+                <Route path="/checkout" element={<Platnosci />} />
+            </Routes>
+        </BrowserRouter>
     );
 }
 
-export default App;

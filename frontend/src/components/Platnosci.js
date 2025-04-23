@@ -1,21 +1,25 @@
-// src/components/Platnosci.js
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useCart, useCartDispatch } from '../context/CartContext';
 
 const Platnosci = () => {
+    const cart = useCart();
+    const dispatch = useCartDispatch();
     const [name, setName]   = useState('');
     const [email, setEmail] = useState('');
     const [status, setStatus] = useState(null);
 
+    const total = cart.reduce((sum, i) => sum + i.price * i.qty, 0);
+
     const handleSubmit = async e => {
         e.preventDefault();
         try {
-            const payload = {
+            await axios.post('http://localhost:8080/payments', {
                 customer: { name, email },
-                items: []
-            };
-            await axios.post('http://localhost:8080/payments', payload);
+                items: cart
+            });
             setStatus('success');
+            dispatch({ type: 'CLEAR_CART' });
         } catch (err) {
             console.error(err);
             setStatus('error');
@@ -44,7 +48,9 @@ const Platnosci = () => {
                         required
                     />
                 </div>
-                <button type="submit">Wyślij płatność</button>
+                <button type="submit">
+                    Zapłać {total.toFixed(2)} zł
+                </button>
             </form>
 
             {status === 'success' && (
