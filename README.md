@@ -89,3 +89,36 @@ a produktem [Link do commita 4](https://github.com/p3choco/Tech_Learning_repo/co
 
 
 Kod: Go
+
+
+
+**Zadanie 5** Frontend
+
+Należy stworzyć aplikację kliencką wykorzystując bibliotekę React.js.
+W ramach projektu należy stworzyć trzy komponenty: Produkty, Koszyk
+oraz Płatności. Koszyk oraz Płatności powinny wysyłać do aplikacji
+serwerowej dane, a w Produktach powinniśmy pobierać dane o produktach
+z aplikacji serwerowej. Aplikacja serwera w jednym z trzech języków:
+Kotlin, Scala, Go. Dane pomiędzy wszystkimi komponentami powinny być
+przesyłane za pomocą React hooks.
+
+:white_check_mark: 3.0 W ramach projektu należy stworzyć dwa komponenty: Produkty oraz
+Płatności; Płatności powinny wysyłać do aplikacji serwerowej dane, a w
+Produktach powinniśmy pobierać dane o produktach z aplikacji
+serwerowej; [Link do commita 1](https://github.com/p3choco/Tech_Learning_repo/commit/c7091c51ccc7eeaa76341403a229fa0203ab89f4)
+
+:white_check_mark: 3.5 Należy dodać Koszyk wraz z widokiem; należy wykorzystać routing [Link do commita 2](https://github.com/p3choco/Tech_Learning_repo/commit/3d66229a8263cd5ef70943d3ed211d092e083e54)
+
+:white_check_mark: 4.0 Dane pomiędzy wszystkimi komponentami powinny być przesyłane za
+pomocą React hooks [Link do commita 3](https://github.com/p3choco/Tech_Learning_repo/commit/1c1a10e831cd669f0685015a0ccc14d5b1f96c1f)
+
+:white_check_mark: 4.5 Należy dodać skrypt uruchamiający aplikację serwerową oraz
+kliencką na dockerze via docker-compose [Link do commita 4](https://github.com/p3choco/Tech_Learning_repo/commit/5d59c24ba259d44bbd893c62a3f14d343b428161)
+
+:white_check_mark: 5.0 Należy wykorzystać axios’a oraz dodać nagłówki pod CORS [Link do commita 5](https://github.com/p3choco/Tech_Learning_repo/commit/5d59c24ba259d44bbd893c62a3f14d343b428161)
+
+
+https://github.com/user-attachments/assets/dd2fbe6d-0466-494f-8aa8-2f0ca3166a3c
+
+
+Kod: Frontend
