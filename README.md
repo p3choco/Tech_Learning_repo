@@ -122,3 +122,33 @@ https://github.com/user-attachments/assets/dd2fbe6d-0466-494f-8aa8-2f0ca3166a3c
 
 
 Kod: Frontend
+
+
+**Zadanie 6** Testy
+
+Należy stworzyć 20 przypadków testowych w jednym z rozwiązań:
+
+- Cypress JS (JS)
+- Selenium (Kotlin, Python, Java, JS, Go, Scala)
+
+Testy mają w sumie zawierać minimum 50 asercji (3.5). Mają również
+uruchamiać się na platformie Browserstack (5.0). Proszę pamiętać o
+stworzeniu darmowego konta via https://education.github.com/pack.
+
+:white_check_mark: 3.0 Należy stworzyć 20 przypadków testowych w CypressJS lub Selenium
+(Kotlin, Python, Java, JS, Go, Scala) [Link do commita 1](https://github.com/p3choco/Tech_Learning_repo/commit/ed9aff04c1f69e312fc7d1ed672f88ac61d2d4a9)
+
+:white_check_mark: 3.5 Należy rozszerzyć testy funkcjonalne, aby zawierały minimum 50
+asercji [Link do commita 2](https://github.com/p3choco/Tech_Learning_repo/commit/ed9aff04c1f69e312fc7d1ed672f88ac61d2d4a9)
+
+:white_check_mark: 4.0 Należy stworzyć testy jednostkowe do wybranego wcześniejszego
+projektu z minimum 50 asercjami [Link do commita 3](https://github.com/p3choco/Tech_Learning_repo/commit/ed9aff04c1f69e312fc7d1ed672f88ac61d2d4a9)
+
+:white_check_mark: 4.5 Należy dodać testy API, należy pokryć wszystkie endpointy z
+minimum jednym scenariuszem negatywnym per endpoint [Link do commita 4](https://github.com/p3choco/Tech_Learning_repo/commit/ed9aff04c1f69e312fc7d1ed672f88ac61d2d4a9)
+
+:white_check_mark: 5.0 Należy uruchomić testy funkcjonalne na Browserstacku [Link do commita 5](https://github.com/p3choco/Tech_Learning_repo/commit/ed9aff04c1f69e312fc7d1ed672f88ac61d2d4a9)
+
+
+Kod: Tests
+ 
