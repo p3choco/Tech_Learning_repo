@@ -151,4 +151,37 @@ minimum jednym scenariuszem negatywnym per endpoint [Link do commita 4](https://
 
 
 Kod: Tests
- 
+
+
+**Zadanie 7** Sonar
+
+Należy dodać projekt aplikacji klienckiej oraz serwerowej (jeden
+branch, dwa repozytoria) do Sonara w wersji chmurowej
+(https://sonarcloud.io/). Należy poprawić aplikacje uzyskując 0 bugów,
+0 zapaszków, 0 podatności, 0 błędów bezpieczeństwa. Dodatkowo należy
+dodać widżety sonarowe do README w repozytorium dane projektu z
+wynikami.
+
+:white_check_mark: 3.0 Należy dodać litera do odpowiedniego kodu aplikacji serwerowej w
+hookach gita [Link do commita 1](https://github.com/p3choco/Tech_Learning_repo_SERVER/commit/bbef83bc2ae4e495e5c4b1015105b09a4a22be2a)
+
+:white_check_mark: 3.5 Należy wyeliminować wszystkie bugi w kodzie w Sonarze (kod
+aplikacji serwerowej) [Link do commita 2](https://github.com/p3choco/Tech_Learning_repo_SERVER/commit/bbef83bc2ae4e495e5c4b1015105b09a4a22be2a)
+
+:white_check_mark: 4.0 Należy wyeliminować wszystkie zapaszki w kodzie w Sonarze (kod
+aplikacji serwerowej) [Link do commita 3](https://github.com/p3choco/Tech_Learning_repo_SERVER/commit/bbef83bc2ae4e495e5c4b1015105b09a4a22be2a)
+
+:white_check_mark: 4.5 Należy wyeliminować wszystkie podatności oraz błędy bezpieczeństwa
+w kodzie w Sonarze (kod aplikacji serwerowej) [Link do commita 4](https://github.com/p3choco/Tech_Learning_repo_SERVER/commit/bbef83bc2ae4e495e5c4b1015105b09a4a22be2a)
+
+:white_check_mark: 5.0 Należy wyeliminować wszystkie błędy oraz zapaszki w kodzie
+aplikacji klienckiej [Link do commita 5](https://github.com/p3choco/Tech_Learning_repo_CLIENT/commit/f73979ae09d2a22147b7dd373ca934df5043bc10)
+
+
+Kod: 
+
+[Server](https://github.com/p3choco/Tech_Learning_repo_SERVER)
+
+[Client](https://github.com/p3choco/Tech_Learning_repo_CLIENT) 
+
+
