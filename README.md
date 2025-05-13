@@ -163,7 +163,7 @@ dodać widżety sonarowe do README w repozytorium dane projektu z
 wynikami.
 
 :white_check_mark: 3.0 Należy dodać litera do odpowiedniego kodu aplikacji serwerowej w
-hookach gita [Link do commita 1](https://github.com/p3choco/Tech_Learning_repo_SERVER/commit/bbef83bc2ae4e495e5c4b1015105b09a4a22be2a)
+hookach gita [Link do commita 1](https://github.com/p3choco/Tech_Learning_repo_SERVER/commit/1bdfc48edabe503ab95920b31b4edb32d8cd2203)
 
 :white_check_mark: 3.5 Należy wyeliminować wszystkie bugi w kodzie w Sonarze (kod
 aplikacji serwerowej) [Link do commita 2](https://github.com/p3choco/Tech_Learning_repo_SERVER/commit/bbef83bc2ae4e495e5c4b1015105b09a4a22be2a)
