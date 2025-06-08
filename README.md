@@ -230,13 +230,22 @@ należy stworzyć w Pythonie.
 
 :white_check_mark:3.0 należy stworzyć po stronie serwerowej osobny serwis do łącznia z
 chatGPT do usługi chat [Link do commita 1](https://github.com/p3choco/Tech_Learning_repo/commit/cafd8c77b72fbe50d3d269dac20112252b40fb7e)
+
+
 :white_check_mark:3.5 należy stworzyć interfejs frontowy dla użytkownika, który
 komunikuje się z serwisem; odpowiedzi powinny być wysyałen do
 frontendowego interfejsu [Link do commita 2](https://github.com/p3choco/Tech_Learning_repo/commit/cafd8c77b72fbe50d3d269dac20112252b40fb7e)
+
+
 :white_check_mark:4.0 stworzyć listę 5 różnych otwarć oraz zamknięć rozmowy [Link do commita 3](https://github.com/p3choco/Tech_Learning_repo/commit/cafd8c77b72fbe50d3d269dac20112252b40fb7e)
+
+
 :white_check_mark:4.5 filtrowanie po zagadnieniach związanych ze sklepem (np.
 ograniczenie się jedynie do ubrań oraz samego sklepu) do GPT [Link do commita 4](https://github.com/p3choco/Tech_Learning_repo/commit/cafd8c77b72fbe50d3d269dac20112252b40fb7e)
+
+
 :white_check_mark:5.0 filtrowanie odpowiedzi po sentymencie [Link do commita 5](https://github.com/p3choco/Tech_Learning_repo/commit/cafd8c77b72fbe50d3d269dac20112252b40fb7e)
+
 
 
 Kod:
