@@ -1,0 +1,5 @@
+body { font-family: Arial, sans-serif; margin: 30px; }
+.chat-box { border:1px solid #ccc; padding:15px; width:400px; height:300px; overflow-y:auto; }
+.user { color: blue; margin:5px 0; }
+.bot { color: green; margin:5px 0; }
+.sentiment { font-size:0.8em; color:#666; }
