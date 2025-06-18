@@ -1,0 +1,139 @@
+.App {
+  text-align: center;
+  min-height: 100vh;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 2rem;
+  color: white;
+}
+
+.App-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #61dafb;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: #888;
+  margin-bottom: 2rem;
+}
+
+.items-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 1rem;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.item-card {
+  background-color: #3b4049;
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: left;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.item-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.item-card h2 {
+  margin: 0 0 1rem 0;
+  font-size: 1.5rem;
+  color: #61dafb;
+}
+
+.item-card p {
+  margin: 0 0 1rem 0;
+  font-size: 1rem;
+  color: #ccc;
+  line-height: 1.5;
+}
+
+.item-footer {
+  border-top: 1px solid #4a4f5a;
+  padding-top: 1rem;
+  margin-top: 1rem;
+}
+
+.item-id {
+  color: #888;
+  font-size: 0.9rem;
+}
+
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #282c34;
+  color: white;
+}
+
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #61dafb;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #282c34;
+  color: white;
+  padding: 2rem;
+  text-align: center;
+}
+
+.error-container h2 {
+  color: #ff6b6b;
+  margin-bottom: 1rem;
+}
+
+.error-container button {
+  background-color: #61dafb;
+  color: #282c34;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 1rem;
+}
+
+.error-container button:hover {
+  background-color: #4fa8c7;
+}
+
+.no-items {
+  text-align: center;
+  padding: 2rem;
+  color: #888;
+  font-size: 1.2rem;
+} 
