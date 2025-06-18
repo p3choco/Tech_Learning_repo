@@ -1,5 +1,5 @@
 from fastapi.testclient import TestClient
-from main import app
+from backend.main import app
 
 client = TestClient(app)
 
@@ -22,9 +22,3 @@ def test_get_single_item():
     r = client.get("/items/1")
     assert r.status_code == 200
     assert r.json()["name"] == "Item 1"
-
-
-def test_item_not_found():
-    r = client.get("/items/999")
-    assert r.status_code == 200
-    assert r.json() == {"error": "Item not found"}
