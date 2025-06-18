@@ -8,6 +8,7 @@ env:
   PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
   GKE_CLUSTER: ${{ secrets.GKE_CLUSTER }}
   GKE_ZONE: ${{ secrets.GKE_ZONE }}
+  GKE_REGION:  ${{ secrets.GKE_REGION }}
   REGION: europe-central2
   REPO: ci-registry
 
