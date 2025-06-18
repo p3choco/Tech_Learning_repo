@@ -8,6 +8,8 @@ env:
   PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
   GKE_CLUSTER: ${{ secrets.GKE_CLUSTER }}
   GKE_ZONE: ${{ secrets.GKE_ZONE }}
+  REGION: europe-central2
+  REPO: ci-registry
 
 jobs:
   build-and-deploy:
@@ -23,22 +25,22 @@ jobs:
         service_account_key: ${{ secrets.GCP_SA_KEY }}
         export_default_credentials: true
 
-    - name: Configure Docker
-      run: gcloud auth configure-docker
+    - name: Configure Docker for Artifact Registry
+      run: gcloud auth configure-docker ${{ env.REGION }}-docker.pkg.dev
 
     - name: Build and push Backend
       run: |
-        docker build -t gcr.io/${{ env.PROJECT_ID }}/backend:${{ github.sha }} ./backend
-        docker push gcr.io/${{ env.PROJECT_ID }}/backend:${{ github.sha }}
+        docker build -t ${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPO }}/backend:${{ github.sha }} ./backend
+        docker push    ${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPO }}/backend:${{ github.sha }}
 
     - name: Build and push Frontend
       run: |
-        docker build -t gcr.io/${{ env.PROJECT_ID }}/frontend:${{ github.sha }} ./frontend
-        docker push gcr.io/${{ env.PROJECT_ID }}/frontend:${{ github.sha }}
+        docker build -t ${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPO }}/frontend:${{ github.sha }} ./frontend
+        docker push    ${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPO }}/frontend:${{ github.sha }}
 
     - name: Deploy to GKE
       run: |
         gcloud container clusters get-credentials ${{ env.GKE_CLUSTER }} --zone ${{ env.GKE_ZONE }}
         kubectl apply -f k8s/
-        kubectl set image deployment/backend backend=gcr.io/${{ env.PROJECT_ID }}/backend:${{ github.sha }}
-        kubectl set image deployment/frontend frontend=gcr.io/${{ env.PROJECT_ID }}/frontend:${{ github.sha }} 
+        kubectl set image deployment/backend backend=${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPO }}/backend:${{ github.sha }}
+        kubectl set image deployment/frontend frontend=${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPO }}/frontend:${{ github.sha }}
