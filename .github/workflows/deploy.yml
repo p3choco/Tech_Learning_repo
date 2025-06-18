@@ -57,3 +57,26 @@ jobs:
           kubectl apply -f k8s/
           kubectl set image deployment/backend   backend=${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPO }}/backend:${{ github.sha }}
           kubectl set image deployment/frontend frontend=${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPO }}/frontend:${{ github.sha }}
+
+      - name: Send success e-mail
+        if: success()
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address:  ${{ secrets.SMTP_SERVER }}
+          server_port:     ${{ secrets.SMTP_PORT }}
+          username:        ${{ secrets.MAIL_USERNAME }}
+          password:        ${{ secrets.MAIL_PASSWORD }}
+          subject: |
+            ✅ Deploy OK: ${{ github.repository }} @ ${{ github.sha }}
+          body: |
+            Cześć!
+            
+            Build i deploy **${{ github.repository }}**
+            zakończyły się sukcesem.
+  
+            Commit:   ${{ github.sha }}
+            Akcja:    https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+  
+            Pozdrawiam – Twój bot CI/CD
+          to:          ${{ secrets.MAIL_TO }}
+          from:        "CI Bot <${{ secrets.MAIL_USERNAME }}>"
