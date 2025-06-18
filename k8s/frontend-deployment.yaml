@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: europe-central2-docker.pkg.dev/dotted-chariot-453515-v0/ci-registry/frontend:latest
+        image: europe-central2-docker.pkg.dev/dotted-chariot-453515-v0/ci-registry/frontend:__TAG__
         ports:
         - containerPort: 3000
         env:

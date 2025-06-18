@@ -11,7 +11,7 @@ function App() {
     const fetchItems = async () => {
       try {
         console.log('Fetching items from backend...');
-        const response = await axios.get('http://localhost:8000/items');
+        const response = await axios.get("/api/items")   ;
         console.log('Received items:', response.data);
         setItems(response.data);
         setLoading(false);
