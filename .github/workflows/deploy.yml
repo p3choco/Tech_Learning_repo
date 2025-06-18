@@ -28,6 +28,13 @@ jobs:
     - name: Configure Docker for Artifact Registry
       run: gcloud auth configure-docker ${{ env.REGION }}-docker.pkg.dev
 
+    - name: Docker login via access token
+      run: |
+        TOKEN=$(gcloud auth print-access-token)
+        echo "$TOKEN" | docker login \
+          -u oauth2accesstoken \
+          --password-stdin ${{ env.REGION }}-docker.pkg.dev
+
     - name: Build and push Backend
       run: |
         docker build -t ${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPO }}/backend:${{ github.sha }} ./backend
