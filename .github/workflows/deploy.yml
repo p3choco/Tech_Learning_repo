@@ -28,6 +28,7 @@ jobs:
       - uses: google-github-actions/setup-gcloud@v1
         with:
           project_id: ${{ env.PROJECT_ID }}
+          install_components: gke-gcloud-auth-plugin
 
       - name: Configure Docker helper
         run: gcloud auth configure-docker ${{ env.REGION }}-docker.pkg.dev
