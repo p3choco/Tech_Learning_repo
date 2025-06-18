@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: gcr.io/${PROJECT_ID}/frontend:latest
+        image: europe-central2-docker.pkg.dev/dotted-chariot-453515-v0/ci-registry/frontend:latest
         ports:
         - containerPort: 3000
         env:
@@ -31,4 +31,4 @@ spec:
   ports:
   - port: 80
     targetPort: 3000
-  type: LoadBalancer 
+  type: LoadBalancer

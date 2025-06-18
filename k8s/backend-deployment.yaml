@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: backend
-        image: gcr.io/${PROJECT_ID}/backend:latest
+        image: europe-central2-docker.pkg.dev/dotted-chariot-453515-v0/ci-registry/backend:latest
         ports:
         - containerPort: 8000
         env:
@@ -31,4 +31,4 @@ spec:
   ports:
   - port: 8000
     targetPort: 8000
-  type: ClusterIP 
+  type: ClusterIP

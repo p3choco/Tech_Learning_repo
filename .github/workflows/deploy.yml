@@ -2,7 +2,7 @@ name: Deploy to GCP
 
 on:
   push:
-    branches: [ ci/cd ]
+    branches: [ci/cd]
 
 env:
   PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
@@ -18,36 +18,38 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - name: Set up Cloud SDK
+    - id: gcloud
       uses: google-github-actions/setup-gcloud@v1
       with:
         project_id: ${{ env.PROJECT_ID }}
         service_account_key: ${{ secrets.GCP_SA_KEY }}
         export_default_credentials: true
 
-    - name: Configure Docker for Artifact Registry
+    - name: Configure Docker helper
       run: gcloud auth configure-docker ${{ env.REGION }}-docker.pkg.dev
 
     - name: Docker login via access token
       run: |
+        gcloud auth activate-service-account --key-file="${{ steps.gcloud.outputs.credentials_file_path }}"
         TOKEN=$(gcloud auth print-access-token)
-        echo "$TOKEN" | docker login \
-          -u oauth2accesstoken \
-          --password-stdin ${{ env.REGION }}-docker.pkg.dev
+        echo "$TOKEN" | docker login -u oauth2accesstoken --password-stdin \
+          ${{ env.REGION }}-docker.pkg.dev
 
     - name: Build and push Backend
       run: |
-        docker build -t ${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPO }}/backend:${{ github.sha }} ./backend
-        docker push    ${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPO }}/backend:${{ github.sha }}
+        IMAGE=${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPO }}/backend:${{ github.sha }}
+        docker build -t "$IMAGE" ./backend
+        docker push "$IMAGE"
 
     - name: Build and push Frontend
       run: |
-        docker build -t ${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPO }}/frontend:${{ github.sha }} ./frontend
-        docker push    ${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPO }}/frontend:${{ github.sha }}
+        IMAGE=${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPO }}/frontend:${{ github.sha }}
+        docker build -t "$IMAGE" ./frontend
+        docker push "$IMAGE"
 
     - name: Deploy to GKE
       run: |
         gcloud container clusters get-credentials ${{ env.GKE_CLUSTER }} --zone ${{ env.GKE_ZONE }}
         kubectl apply -f k8s/
-        kubectl set image deployment/backend backend=${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPO }}/backend:${{ github.sha }}
+        kubectl set image deployment/backend   backend=${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPO }}/backend:${{ github.sha }}
         kubectl set image deployment/frontend frontend=${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPO }}/frontend:${{ github.sha }}
