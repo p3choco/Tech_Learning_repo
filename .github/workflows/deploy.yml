@@ -41,7 +41,7 @@ jobs:
       - name: Install frontend deps & run tests
         working-directory: frontend
         run: |
-          npm ci
+          npm install
           npm test --silent
 
       - id: auth
