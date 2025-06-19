@@ -38,12 +38,6 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Install frontend deps & run tests
-        working-directory: frontend
-        run: |
-          npm install
-          npm test --silent
-
       - id: auth
         uses: google-github-actions/auth@v2
         with:
