@@ -268,26 +268,31 @@ na chmurze.
 
 
 :white_check_mark:3.0 Należy stworzyć odpowiednie instancje po stronie chmury na
-dockerze [Link do commita 1](https://github.com/p3choco/Tech_Learning_repo/commit/020b4d4c3f2fd12f9a0cecfb5aae1e70d01662f1
+dockerze [Link do commita 1](https://github.com/p3choco/Tech_Learning_repo/commit/e097f44ec75a4c0e228305423d2b7417a94989db
+
 )
 
 
 :white_check_mark:3.5 Stworzyć odpowiedni pipeline w Github Actions do budowania
-aplikacji (np. via fatjar) [Link do commita 2](https://github.com/p3choco/Tech_Learning_repo/commit/020b4d4c3f2fd12f9a0cecfb5aae1e70d01662f1
+aplikacji (np. via fatjar) [Link do commita 2](https://github.com/p3choco/Tech_Learning_repo/commit/e097f44ec75a4c0e228305423d2b7417a94989db
+
 )
 
 
-:white_check_mark:4.0 Dodać notyfikację mailową o zbudowaniu aplikacji [Link do commita 3](https://github.com/p3choco/Tech_Learning_repo/commit/020b4d4c3f2fd12f9a0cecfb5aae1e70d01662f1
+:white_check_mark:4.0 Dodać notyfikację mailową o zbudowaniu aplikacji [Link do commita 3](https://github.com/p3choco/Tech_Learning_repo/commit/e097f44ec75a4c0e228305423d2b7417a94989db
+
 )
 
 
 :white_check_mark:4.5 Dodać krok z deploymentem aplikacji serwerowej oraz klienckiej na
-chmurę [Link do commita 4](https://github.com/p3choco/Tech_Learning_repo/commit/020b4d4c3f2fd12f9a0cecfb5aae1e70d01662f1
+chmurę [Link do commita 4](https://github.com/p3choco/Tech_Learning_repo/commit/e097f44ec75a4c0e228305423d2b7417a94989db
+
 )
 
 
 :white_check_mark:5.0 Dodać uruchomienie regresyjnych testów automatycznych
-(funkcjonalnych) jako krok w Actions [Link do commita 5](https://github.com/p3choco/Tech_Learning_repo/commit/020b4d4c3f2fd12f9a0cecfb5aae1e70d01662f1
+(funkcjonalnych) jako krok w Actions [Link do commita 5](https://github.com/p3choco/Tech_Learning_repo/commit/e097f44ec75a4c0e228305423d2b7417a94989db
+
 )
 
 
